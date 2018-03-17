@@ -1,8 +1,8 @@
 // users reducer
-export default function users(state = {}, action) {
+export default function quiz(state = {}, action) {
   switch (action.type) {
-    case 'QUIZ_LIST_SAVE':
-      return action.users;
+    case 'QUIZ_SAVE_LIST':
+      return action.quiz;
 
     
     // initial state
