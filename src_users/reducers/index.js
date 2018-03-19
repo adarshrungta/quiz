@@ -6,4 +6,5 @@ import quiz from "./quiz";
 export const reducers = combineReducers({
   routing: routerReducer,
   quiz: quiz,
+
 });
