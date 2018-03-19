@@ -38,13 +38,24 @@ export default function quiz(state = INITIAL_STATE, action) {
           current_index : current_index
         });
      case 'SKIPPED_QUESTION' : 
+      
+      let right_answer_count_1 = state.right_answer_count;
       let wrong_answer_count_1 = state.wrong_answer_count;
       let current_index_1 = state.current_index;
+     
+      if(state.quiz_data[`question_id_${state.current_index}`].answer_id == action.data)
+        right_answer_count++;
+      else
+        wrong_answer_count++;
+      current_index++;
+
+      
       wrong_answer_count_1++;
       current_index_1++;
       if (current_index === Object.keys(state.quiz_data).length + 1)  {
         return Object.assign({}, state, 
         {
+          right_answer_count: right_answer_count_1,
           wrong_answer_count: wrong_answer_count_1, 
           current_index : current_index_1,
           summary: true,
@@ -52,6 +63,7 @@ export default function quiz(state = INITIAL_STATE, action) {
       }
       return Object.assign({}, state, 
         {
+          right_answer_count: right_answer_count_1,
           wrong_answer_count: wrong_answer_count_1, 
           current_index : current_index_1
         });  

@@ -22,11 +22,7 @@ export class App extends React.Component {
   }
   // render
   render() {
-    // render
-
-
-
-
+    
     return (
       <div className="container">
         { !this.props.summary && <div>
@@ -48,12 +44,15 @@ export class App extends React.Component {
             })}
         </ul>
         <button onClick={() => this.props.dispatch({type : "SKIPPED_QUESTION"})} className="btn btn-primary">Skip</button>
+        
+        
         </div>
         }
         { this.props.summary && <div>
           Wrong Answer : {this.props.wrong_answer} <br/ >
           Right Answer : {this.props.right_answer}
         </div>  }
+
       </div>
     );
   }
